@@ -64,8 +64,6 @@ export const createProduct = async (req: Request, res: Response) => {
 
     const { name, price, stock, userId } = req.body;
 
-    console.log(name, price, stock, userId);
-
     const product = await prisma.product.create({
       data: {
         name,
@@ -82,6 +80,7 @@ export const createProduct = async (req: Request, res: Response) => {
       data: product,
     });
   } catch (error) {
+    console.log("error", error);
     res.status(500).json({
       code: 500,
       status: "error",
