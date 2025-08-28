@@ -28,7 +28,7 @@ export async function loginUser(email: string, password: string) {
 
   const token = signToken({ id: user.id, role: user.role });
 
-  return { token };
+  return token;
 }
 
 export async function resetUser(email: string, newPassword: string) {
@@ -40,4 +40,6 @@ export async function resetUser(email: string, newPassword: string) {
       password: hashed,
     },
   });
+
+  return user;
 }
