@@ -114,31 +114,3 @@ export async function handleReset(
     next(error);
   }
 }
-
-export async function handleUploadProfile(
-  req: Request,
-  res: Response,
-  next: NextFunction
-) {
-  const token = req.headers.authorization?.split(" ")[1];
-
-  try {
-    if (!req.file) {
-      res.status(400).json({ message: "no file uploaded" });
-    }
-
-    const image = req.file?.filename;
-
-    const decoded = verifyToken(token);
-    (req as any).user = decoded as any;
-
-    const user = await prisma.user.update({
-      where: { id: decoded.id },
-      data: { image },
-    });
-
-    res.status(201).json({ message: "User profile picture updated", user });
-  } catch (error) {
-    next(error);
-  }
-}

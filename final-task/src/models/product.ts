@@ -11,12 +11,12 @@ export class GetProductsModel {
   order?: string;
   minPrice?: number;
   maxPrice?: number;
-  limit?: number;
-  offset?: number;
+  pageIndex?: number;
+  pageSize?: number;
 }
 
 export class UpdateProductModel {
-  id: string;
+  id: number;
   data: ProductDataModel;
 }
 
@@ -28,5 +28,8 @@ export class ProductDataModel {
 }
 
 export class DeleteProductModel {
-  id: string;
+  id: number;
+}
+export class RestoreProductModel {
+  id: number;
 }

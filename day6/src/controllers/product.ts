@@ -131,7 +131,6 @@ export const uploadProductImage = async (req: Request, res: Response) => {
       data: product,
     });
   } catch (error) {
-    console.log("error", error);
     res.status(500).json({
       code: 500,
       status: "error",
