@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .todo-item {
+    @apply w-full flex justify-center items-center text-xl border-b-2 border-amber-800 py-3 px-2;
+  }
+
+  .app {
+    @apply container h-screen mx-auto bg-amber-100 flex flex-col items-center;
+  }
+
+  .title {
+    @apply text-3xl text-amber-800 pt-2 pb-5 font-semibold
+  }
+}

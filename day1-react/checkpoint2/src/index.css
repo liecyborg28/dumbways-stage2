@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@layer base {
+
+  /* Base toggle */
+  .switch {
+    @apply relative inline-block w-14 h-8 align-middle select-none;
+  }
+
+  .switch-input {
+    @apply absolute opacity-0 w-0 h-0;
+  }
+
+  .slider {
+    @apply absolute cursor-pointer inset-0 bg-gray-300 rounded-full transition-colors duration-200 ease-in-out;
+  }
+
+  .slider::before {
+    content: "";
+    @apply absolute left-1 bottom-1 h-6 w-6 bg-white rounded-full transition-transform duration-200 ease-in-out shadow;
+  }
+
+  /* Checked state */
+  .switch-input:checked+.slider {
+    @apply bg-green-400;
+  }
+
+  .switch-input:checked+.slider::before {
+    @apply translate-x-6;
+  }
+
+  /* Focus ring */
+  .switch-input:focus+.slider {
+    @apply ring-4 ring-green-300;
+  }
+
+  /* Disabled state */
+  .switch-input:disabled+.slider {
+    @apply opacity-60 cursor-not-allowed;
+  }
+
+  .product-card-container {
+    @apply container flex justify-center mx-auto gap-5 pt-10;
+  }
+
+  .product-card {
+    @apply flex flex-col justify-center items-center shadow w-50 h-60 rounded-xl;
+  }
+
+  .product-card-image {
+    @apply w-full h-30 bg-center bg-cover bg-amber-700;
+  }
+}
